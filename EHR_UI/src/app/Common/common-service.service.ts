@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class CommonServiceService {
 
-  constructor() { }
+  constructor(private _http:HttpClient) { }
+
+  baseUrl='https://localhost:7105/';
+
+  Register(RegisterUser:any){
+    let url=this.baseUrl+'api/User';
+    return this._http.post(url,RegisterUser);
+  }
+
 }

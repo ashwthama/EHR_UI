@@ -1,1 +1,43 @@
-<p>register works!</p>
+<form #register="ngForm">
+    name:
+    <input type="text" name="name" id="Name" #Name="ngModel" [(ngModel)]="registerData.name">
+    <br>
+    email:
+    <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="registerData.email">
+    <br>
+    phone:
+    <input type="text" name="phone" id="phone" #phone="ngModel" [(ngModel)]="registerData.phone">
+    <br>
+    gender:
+    <input type="text" name="gender" id="gender" #gender="ngModel" [(ngModel)]="registerData.gender">
+    <br>
+    dateofBirth:
+    <input type="datetime-local" name="dateofBirth" id="dateofBirth" #dateofBirth="ngModel"
+        [(ngModel)]="registerData.dateofBirth">
+    <br>
+    usertype:
+    <input type="text" name="usertype" id="usertype" 
+    #usertype="ngModel" [(ngModel)]="registerData.usertype">
+    <br>
+    address:
+    <input type="text" name="address" id="address" 
+    #address="ngModel" [(ngModel)]="registerData.address">
+    <br>
+    occupation:
+    <input type="text" name="occupation" id="occupation" 
+    #occupation="ngModel" [(ngModel)]="registerData.occupation">
+    <br>
+    profileImg:
+    <input type="file" name="profileImg" id="profileImg" 
+    #profileImg="ngModel" [(ngModel)]="registerData.profileImg" (change)="handleFileSelect($event)">
+    <br>
+    username:
+    <input type="text" name="username" id="username" 
+    username="ngModel" [(ngModel)]="registerData.username">
+    <br>
+    password:
+    <input type="password" name="password" id="password" 
+    #password="ngModel" [(ngModel)]="registerData.password">
+    <br>
+    <button (click)="Register(register)">Submit</button>
+</form>
