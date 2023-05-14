@@ -1,15 +1,53 @@
-<h2>Login Page</h2><br>
-<div class="login">
-    <form id="login" method="get" #LoginForm="ngForm">
-        <label>
-            User Name           
-        </label>
-        <input type="text" name="Uname" id="Uname" placeholder="Username" [(ngModel)]="Username">
-        <br>
-        <label>
-            Password
-        </label>
-        <input type="Password" name="Pass" id="Pass" placeholder="Password" [(ngModel)]="password">
-        <br>
-        <button (click)="Submit(LoginForm)">Login</button>
-    </form>
+<div *ngIf="!Islogin">
+        <form class="login-form" #LoginForm="ngForm" action="javascript:void(0);">
+            <h1>Login</h1>
+            <div class="form-input-material">
+                <input type="text" name="userName" id="Uname" placeholder="Username" [(ngModel)]="Username"
+                    autocomplete="off" class="form-control-material" required />
+                    <br>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-input-material">
+                <input type="password" name="password" id="Pass" placeholder="Password" [(ngModel)]="password"
+                    autocomplete="off" class="form-control-material" required />
+                    <br>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary " (click)="Submit()">Login</button>
+        </form>
+        <button class="btn btn-primary btn-ghost" [routerLink]="['/Register']">Register User</button>
+</div>
+<div *ngIf="Islogin" class="row">
+    <div class="col-11" style="left:10px;top:10px; position: relative;">
+        <img src="{{user?.profileImg}}" style="border-radius: 50%; width: 80px;height: 80px;">
+        <button class="update-profile" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-camera"></i></button>
+        <p>{{user?.dateofBirth|date}} <br>
+        <b>{{user?.name}}</b></p>
+    </div>    
+    <div class="col">
+        <button class="btn-danger btn-logout" (click)="LogoutUser()">Logout</button>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="margin: 30px;">
+                <label> Update Image : </label>
+                <input type="file" name="update_profile" id="Dpupdate" (change)="handleFileSelect($event)">
+                <button (click)="UpdateProfile()">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+</div>

@@ -14,5 +14,10 @@ export class CommonServiceService {
     let url=this.baseUrl+'api/User';
     return this._http.post(url,RegisterUser);
   }
+  
+  login(login:any){
+    let url=this.baseUrl+'api/User/login';
+    return this._http.post(url,login);
+  }
 
 }

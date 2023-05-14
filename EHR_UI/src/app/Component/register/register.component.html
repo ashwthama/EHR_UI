@@ -1,43 +1,51 @@
-<form #register="ngForm">
-    name:
-    <input type="text" name="name" id="Name" #Name="ngModel" [(ngModel)]="registerData.name">
+<form class="form" #register="ngForm">
+    <Label>Name:</Label>
+    <input type="text" class="form-control" name="name" id="Name" #Name="ngModel" [(ngModel)]="registerData.name">
     <br>
-    email:
-    <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="registerData.email">
+    <label>Email:</label>
+    <input type="email" class="form-control" name="email" id="email" #email="ngModel" [(ngModel)]="registerData.email">
     <br>
-    phone:
-    <input type="text" name="phone" id="phone" #phone="ngModel" [(ngModel)]="registerData.phone">
+    <label>Phone:</label>
+    <input type="text" class="form-control" name="phone" id="phone" maxlength="10" #phone="ngModel" [(ngModel)]="registerData.phone">
     <br>
-    gender:
-    <input type="text" name="gender" id="gender" #gender="ngModel" [(ngModel)]="registerData.gender">
+    <label>Gender:</label>
+    <select  class="form-control" name="gender" id="gender" #gender="ngModel" [(ngModel)]="registerData.gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
     <br>
-    dateofBirth:
-    <input type="datetime-local" name="dateofBirth" id="dateofBirth" #dateofBirth="ngModel"
+    <label>DateofBirth:</label>
+    <input type="datetime-local" class="form-control" name="dateofBirth" id="dateofBirth" #dateofBirth="ngModel"
         [(ngModel)]="registerData.dateofBirth">
     <br>
-    usertype:
-    <input type="text" name="usertype" id="usertype" 
+    <label>User type:</label>
+    <select  class="form-control" name="usertype" id="usertype" 
     #usertype="ngModel" [(ngModel)]="registerData.usertype">
+        <option value="Patient">Patient</option>
+        <option value="Doctor">Doctor</option>
+    </select>
     <br>
-    address:
-    <input type="text" name="address" id="address" 
+    <label>Address:</label>
+    <input type="text" class="form-control" name="address" id="address" 
     #address="ngModel" [(ngModel)]="registerData.address">
     <br>
-    occupation:
-    <input type="text" name="occupation" id="occupation" 
+    <label>Occupation:</label>
+    <input type="text" class="form-control" name="occupation" id="occupation" 
     #occupation="ngModel" [(ngModel)]="registerData.occupation">
     <br>
-    profileImg:
-    <input type="file" name="profileImg" id="profileImg" 
+    <label>Profile Img:</label>
+    <input type="file" class="form-control" name="profileImg" id="profileImg" 
     #profileImg="ngModel" [(ngModel)]="registerData.profileImg" (change)="handleFileSelect($event)">
     <br>
-    username:
-    <input type="text" name="username" id="username" 
+    <label>Username:</label>
+    <input type="text" class="form-control" name="username" id="username" 
     username="ngModel" [(ngModel)]="registerData.username">
     <br>
-    password:
-    <input type="password" name="password" id="password" 
+    <label>Password:</label>
+    <input type="password" class="form-control" name="password" id="password" 
     #password="ngModel" [(ngModel)]="registerData.password">
     <br>
-    <button (click)="Register(register)">Submit</button>
+    <button class="btn btn-primary" (click)="Register(register)">Register</button>
 </form>
+
+<button class="btn btn-primary btn-ghost" [routerLink]="['/Login']">Login User</button>
