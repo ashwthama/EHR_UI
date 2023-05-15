@@ -10,7 +10,10 @@ export class LoginComponent implements OnInit {
   Username = '';
   password = '';
   Islogin: boolean = false;
+  IsDoctor : boolean = false;
+  IsPatient: boolean = false;
   user: any
+  Appointment:any;
   base64String="";
   constructor(private _commonservice: CommonServiceService) { }
 
@@ -28,6 +31,12 @@ export class LoginComponent implements OnInit {
       console.log(res);
       this.user = res;
       this.Islogin = true;
+
+      if(this.user.usertype=="Doctor"){
+        this.IsDoctor=true;
+      }else{
+        this.IsPatient=true;
+      }
     });
   }
 
@@ -54,8 +63,11 @@ export class LoginComponent implements OnInit {
     this.user.profileImg=this.base64String;
     this._commonservice.Register(this.user).subscribe((res:any)=>{
       window.location.reload();
-    });
-    
+    });    
+  }
+
+  AppointmentBooking(AppointmentForm:any){
+    console.log(AppointmentForm.value);    
   }
 
 }

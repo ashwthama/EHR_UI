@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -41,13 +41,56 @@
             <div style="margin: 30px;">
                 <label> Update Image : </label>
                 <input type="file" name="update_profile" id="Dpupdate" (change)="handleFileSelect($event)">
+                <img src="{{base64String}}" style="width: 80px;height: 100px;">
                 <button (click)="UpdateProfile()">Update</button>
             </div>
           </div>
         </div>
       </div>
+</div>
 
 
+<!-- patient div -->
+<div *ngIf="Islogin ">
+  <button data-toggle="modal" data-target="#AppointmentModal">Book Appointment</button>
 
+  <!-- Appointment Booking modal -->
+  <div class="modal fade" id="AppointmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div>
+          <form #AppointmentForm="ngForm">
+            Name:
+            <input type="text" name="Name" id="Name" #Name="ngModel" [(ngModel)]="Appointment.Name"><br>
+            Age:
+            <input type="text" name="Age" id="Age" #Age="ngModel" [(ngModel)]="Appointment.Age"><br>
+            Address:
+            <input type="text" name="Address" id="Address" #Address="ngModel" [(ngModel)]="Appointment.Address"><br>
+            Problem:
+            <input type="text" name="Problem" id="Problem" #Problem="ngModel" [(ngModel)]="Appointment.Problem"><br>
+            Department:
+            <input type="text" name="Department" id="Department" #Department="ngModel" [(ngModel)]="Appointment.Department"><br>
+            Doctor:
+            <input type="text" name="Doctor" id="Doctor" #Doctor="ngModel" [(ngModel)]="Appointment.Doctor"><br>
+            Fee:
+            <input type="text" name="Fee" id="Fee" #Fee="ngModel" [(ngModel)]="Appointment.Fee"><br>
+            <button (click)="AppointmentBooking(AppointmentForm)">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- doctor div -->
+<div *ngIf="Islogin ">
 
 </div>
